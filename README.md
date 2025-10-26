@@ -1,8 +1,8 @@
-<img heigth="8" src="https://i.imgur.com/5VTYUPE.png" alt="banner">
+<img heigth="8" src="https://i.imgur.com/YPrwggD.png" alt="banner">
 
-<h1 align="center">💻 Data/ML Project Template 🤖</h1>
+<h1 align="center">🧠 1fon-reverse 💹</h1>
 
-<p align="center">A chill starting point for whipping up data projects that actually work, stay sane, and won’t break when you look at them funny.</p>
+<p align="center">An exploration into training foundational AI models using financial markets as the ultimate training ground, inspired by the vision of 1fon.</p>
 
 <p align="center">
   <a href="https://joefavergel.github.io/">joefavergel.github.io</a>
@@ -32,19 +32,21 @@
 
 ## About
 
-`data-project-template` is a Python repository template for developing data science and machine learning projects in early stages. This `Python` library is designed to training and generate the machine and deep learning models that predicts base transportation cost of FTL modality in United States & Canada.
+`1fon-reverse` is a Python repository for exploring and reverse-engineering the concepts proposed by 1fon. The core thesis is that financial markets, with their inherent complexity and adversarial nature, are the ideal environment for training the next generation of AI models.
+
+Instead of games, this project will use market data to research and develop new base models, employing techniques like open-ended learning and large-scale reinforcement learning (RL) to model and navigate market dynamics—the "final boss" of AI benchmarks. The goal is to build a practical framework for what could be considered an "AlphaZero for the real world."
 
 
 ---
 
 ## Features
 
-`data-project-template` is built on `Python 3.12` with [pandas](https://pandas.pydata.org/), [numpy](https://numpy.org/) and [scikit-learn](https://scikit-learn.org/stable/), [matplotlib](https://matplotlib.org/), [seaborn](https://seaborn.pydata.org/), [plotly](https://plotly.com/python/)  among others, to preprocess the data, build the machine learning models, and visualize the results.
+`1fon-reverse` is built on `Python 3.12` with [pandas](https://pandas.pydata.org/), [numpy](https://numpy.org/), [scikit-learn](https://scikit-learn.org/stable/), [matplotlib](https://matplotlib.org/), [seaborn](https://seaborn.pydata.org/), and [plotly](https://plotly.com/python/), to acquire and process complex financial data, build and train machine learning and reinforcement learning models, and visualize market dynamics and agent performance.
 
-For development, the library use:
+For development, the library uses:
 
-- Dependency mangament with [uv](https://docs.astral.sh/uv/)
-- Formatting, import sorting and linting with [ruff](https://docs.astral.sh/ruff/)
+- Dependency management with [uv](https://docs.astral.sh/uv/)
+- Formatting, import sorting, and linting with [ruff](https://docs.astral.sh/ruff/)
 - Git hooks that run all the above with [pre-commit](https://pre-commit.com/)
 - Testing with [pytest](https://docs.pytest.org/en/latest/)
 
@@ -55,24 +57,24 @@ For development, the library use:
 
 As a proposal for the data science life cycle, [OSEMN](https://towardsdatascience.com/5-steps-of-a-data-science-project-lifecycle-26c50372b492) is mainly proposed. Standing for Obtain, Scrub, Explore, Model, and iNterpret, OSEMN is a five-phase life cycle.
 
-Other good option is [Microsoft TDSP: The Team Data Science Process](https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview) combines many modern agile practices with the life cycle. It has five steps: Business Understanding, Data Acquisition and Understanding, Modeling, Deployment, and Customer Acceptance.
+Another good option is [Microsoft TDSP: The Team Data Science Process](https://learn.microsoft.com/en-us/azure/architecture/data-science-process/overview), which combines many modern agile practices with the life cycle. It has five steps: Business Understanding, Data Acquisition and Understanding, Modeling, Deployment, and Customer Acceptance.
 
-The important thing is that if you think they should be combined and form their own life cycle, feel free to do so.
+The important thing is that if you think they should be combined to form your own life cycle, feel free to do so.
 
 
 ---
 
 ## Contribute
 
-First, make sure that before enabling pipenv, you must have `Python 3.12` installed. If it does not correspond to the version you have installed, you can create a conda environment with:
+First, make sure you have `Python 3.12` installed. If your installed version does not match, you can create a conda environment with:
 
 ```sh
-# Create and activate python 3.12 virutal environment
+# Create and activate a Python 3.12 virtual environment
 $ conda create -n py312 python=3.12
 $ conda activate py312
 ```
 
-Now, you can managament the project dependencies with `Pipenv`. To create de virtual environment and install all dependencies follow:
+Now, you can manage the project dependencies with `uv`. To create the virtual environment and install all dependencies, follow these steps:
 
 ```sh
 # Install uv using pip
@@ -81,14 +83,14 @@ $ pip install uv
 # Install development dependencies
 $ uv sync --all-packages
 
-# Activate virtual environment
+# Activate the virtual environment
 $ source .venv/bin/activate
 ```
 
-Once the dependencies are installed, we need to notify `Jupyter` of this new `Python` environment by creating a kernel:
+Once the dependencies are installed, you need to let `Jupyter` know about this new `Python` environment by creating a kernel:
 
 ```sh
 $ ipython kernel install --user --name KERNEL_NAME
 ```
 
-Finally, before making any changes to the library, be sure to review the [GitFlow](https://www.atlassian.com/es/git/tutorials/comparing-workflows/gitflow-workflow) guide and make any changes outside of the `master` branch.
+Finally, before making any changes to the library, be sure to review the [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) guide and make any changes outside of the `main` branch.
