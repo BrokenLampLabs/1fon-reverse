@@ -1,0 +1,434 @@
+{
+  "scan_metadata": {
+    "scan_id": "nof1-ai-20251028-114405",
+    "target": "https://nof1.ai",
+    "timestamp": "2025-10-28T11:44:05Z",
+    "analyzer": "Claude Code - Reverse Engineer Agent with Chrome DevTools MCP",
+    "authorization_status": "AUTHORIZED PROJECT",
+    "total_requests_captured": 68,
+    "analysis_duration_seconds": 180
+  },
+  "technology_stack": {
+    "framework": "Next.js",
+    "hosting": "Vercel",
+    "frontend": "React",
+    "fonts": "Google Fonts - IBM Plex Mono",
+    "analytics": "Vercel Insights",
+    "compression": "Brotli",
+    "cache": "Vercel Edge Network"
+  },
+  "api_endpoints": [
+    {
+      "endpoint": "/api/crypto-prices",
+      "method": "GET",
+      "purpose": "Real-time cryptocurrency prices",
+      "cache_strategy": "public, max-age=0, must-revalidate",
+      "response_type": "application/json",
+      "example_response": {
+        "prices": {
+          "BTC": {"symbol": "BTC", "price": 114502.5, "timestamp": 1761651845673},
+          "ETH": {"symbol": "ETH", "price": 4119.7, "timestamp": 1761651845673},
+          "SOL": {"symbol": "SOL", "price": 199.885, "timestamp": 1761651845673},
+          "BNB": {"symbol": "BNB", "price": 1135.65, "timestamp": 1761651845673},
+          "DOGE": {"symbol": "DOGE", "price": 0.200035, "timestamp": 1761651845673},
+          "XRP": {"symbol": "XRP", "price": 2.64375, "timestamp": 1761651845673}
+        },
+        "serverTime": 1761651845673
+      }
+    },
+    {
+      "endpoint": "/api/trades",
+      "method": "GET",
+      "purpose": "Complete trading history for all models",
+      "cache_strategy": "public, max-age=0, must-revalidate",
+      "response_type": "application/json",
+      "compression": "br",
+      "response_size": "large",
+      "example_trade": {
+        "id": "gpt-5_6a180304-15a6-4002-9032-7646c6abc4b6",
+        "model_id": "gpt-5",
+        "symbol": "SOL",
+        "side": "long",
+        "trade_type": "long",
+        "quantity": 34.42,
+        "entry_price": 203.56,
+        "exit_price": 201.06,
+        "entry_time": 1761641242.126,
+        "exit_time": 1761646481.916,
+        "entry_human_time": "2025-10-28 08:47:22.126000",
+        "exit_human_time": "2025-10-28 10:14:41.916000",
+        "leverage": 1,
+        "realized_gross_pnl": -86.05,
+        "realized_net_pnl": -89.683055,
+        "total_commission_dollars": 3.633055,
+        "entry_commission_dollars": 2.802613,
+        "exit_commission_dollars": 0.830442,
+        "confidence": 0,
+        "entry_crossed": true,
+        "exit_crossed": false,
+        "entry_liquidation": null,
+        "exit_liquidation": null
+      }
+    },
+    {
+      "endpoint": "/api/account-totals",
+      "method": "GET",
+      "purpose": "Current account state for all models with open positions",
+      "cache_strategy": "public, max-age=0, must-revalidate",
+      "response_type": "application/json",
+      "compression": "br",
+      "polling_support": true,
+      "query_params": {
+        "lastHourlyMarker": "optional integer for incremental updates"
+      },
+      "example_account": {
+        "id": "gpt-5_0",
+        "model_id": "gpt-5",
+        "timestamp": 1760741958.847073,
+        "realized_pnl": -32.909602,
+        "total_unrealized_pnl": 337.88502,
+        "dollar_equity": 10304.975418,
+        "sharpe_ratio": 0.077,
+        "cum_pnl_pct": 3.05,
+        "since_inception_minute_marker": 59,
+        "since_inception_hourly_marker": 0,
+        "positions": {
+          "XRP": {
+            "symbol": "XRP",
+            "entry_price": 2.339594,
+            "current_price": 2.31705,
+            "quantity": -7716,
+            "leverage": 12,
+            "margin": 1670.575901,
+            "unrealized_pnl": 174.3401,
+            "closed_pnl": -8.12,
+            "commission": 16.243539,
+            "liquidation_price": 2.4717151438,
+            "risk_usd": 600,
+            "confidence": 0.64,
+            "exit_plan": {
+              "profit_target": 2.19783,
+              "stop_loss": 2.41611,
+              "invalidation_condition": "Close if a 4h candle closes > 2.455 (20EMA + 1xATR14) AND the 4h MACD histogram turns >= 0."
+            },
+            "entry_time": 1760738675.497112,
+            "entry_oid": 204600432746
+          }
+        }
+      }
+    },
+    {
+      "endpoint": "/api/since-inception-values",
+      "method": "GET",
+      "purpose": "Initial values and metadata for each model since inception",
+      "cache_strategy": "public, max-age=0, must-revalidate",
+      "response_type": "application/json",
+      "compression": "br",
+      "example_response": {
+        "sinceInceptionValues": [
+          {
+            "id": "117506d4-d377-47b2-a90b-b86853f796d7",
+            "model_id": "gpt-5",
+            "nav_since_inception": 10000,
+            "inception_date": 1760738409.834185,
+            "num_invocations": 0
+          },
+          {
+            "id": "3aa7df02-90f7-40a9-b996-7eafcfc0ac62",
+            "model_id": "deepseek-chat-v3.1",
+            "nav_since_inception": 10000,
+            "inception_date": 1760738685.790017,
+            "num_invocations": 0
+          },
+          {
+            "id": "96cc37fa-da96-440f-91ad-5e3b6756baa9",
+            "model_id": "claude-sonnet-4-5",
+            "nav_since_inception": 10000,
+            "inception_date": 1760739074.149193,
+            "num_invocations": 0
+          }
+        ],
+        "serverTime": 1761651549760
+      }
+    }
+  ],
+  "models_competing": [
+    "gpt-5",
+    "deepseek-chat-v3.1",
+    "grok-4",
+    "gemini-2.5-pro",
+    "claude-sonnet-4-5",
+    "qwen3-max",
+    "buynhold_btc"
+  ],
+  "supported_symbols": [
+    "BTC",
+    "ETH",
+    "SOL",
+    "BNB",
+    "DOGE",
+    "XRP"
+  ],
+  "network_requests_summary": {
+    "total_requests": 68,
+    "successful_requests": 50,
+    "failed_requests": 18,
+    "cached_requests": 18,
+    "request_types": {
+      "document": 1,
+      "stylesheet": 2,
+      "script": 24,
+      "image": 15,
+      "font": 5,
+      "xhr": 5,
+      "other": 16
+    }
+  },
+  "key_network_requests": [
+    {
+      "reqid": 1,
+      "method": "GET",
+      "url": "https://nof1.ai/",
+      "status": 304,
+      "type": "document"
+    },
+    {
+      "reqid": 28,
+      "method": "GET",
+      "url": "https://nof1.ai/api/crypto-prices",
+      "status": 200,
+      "type": "xhr",
+      "cache": "HIT",
+      "age": 2,
+      "content_type": "application/json; charset=utf-8",
+      "content_length": 432
+    },
+    {
+      "reqid": 29,
+      "method": "GET",
+      "url": "https://nof1.ai/api/trades",
+      "status": 200,
+      "type": "xhr",
+      "cache": "HIT",
+      "age": 15,
+      "content_type": "application/json; charset=utf-8",
+      "compression": "br"
+    },
+    {
+      "reqid": 30,
+      "method": "GET",
+      "url": "https://nof1.ai/api/account-totals",
+      "status": 200,
+      "type": "xhr",
+      "cache": "HIT",
+      "age": 7,
+      "content_type": "application/json; charset=utf-8",
+      "compression": "br"
+    },
+    {
+      "reqid": 31,
+      "method": "GET",
+      "url": "https://nof1.ai/api/since-inception-values",
+      "status": 200,
+      "type": "xhr",
+      "cache": "HIT",
+      "age": 298,
+      "content_type": "application/json; charset=utf-8",
+      "compression": "br"
+    },
+    {
+      "reqid": 33,
+      "method": "POST",
+      "url": "https://nof1.ai/_vercel/insights/view",
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "reqid": 34,
+      "method": "POST",
+      "url": "https://nof1.ai/_vercel/insights/event",
+      "status": 200,
+      "type": "xhr"
+    },
+    {
+      "reqid": 45,
+      "method": "GET",
+      "url": "https://nof1.ai/api/account-totals?lastHourlyMarker=253",
+      "status": 200,
+      "type": "xhr",
+      "cache": "HIT",
+      "note": "Incremental polling with marker"
+    }
+  ],
+  "console_messages": [
+    {
+      "type": "error",
+      "count": 14,
+      "message": "Minified React error #418",
+      "description": "Hydration failed - mismatch between server and client rendering",
+      "severity": "medium",
+      "reference": "https://reactjs.org/docs/error-decoder.html?invariant=418"
+    },
+    {
+      "type": "error",
+      "count": 1,
+      "message": "Minified React error #423",
+      "description": "Text content does not match server-rendered HTML",
+      "severity": "medium",
+      "reference": "https://reactjs.org/docs/error-decoder.html?invariant=423"
+    }
+  ],
+  "security_headers": {
+    "strict-transport-security": "max-age=63072000",
+    "server": "Vercel",
+    "x-vercel-cache": "present",
+    "x-vercel-id": "present",
+    "content-security-policy": "absent",
+    "x-frame-options": "absent",
+    "x-content-type-options": "absent",
+    "x-xss-protection": "absent"
+  },
+  "cache_analysis": {
+    "strategy": "Vercel Edge Network with aggressive caching",
+    "cache_hit_rate": "high",
+    "max_age": 0,
+    "revalidation": "must-revalidate",
+    "stale_while_revalidate": "implicit",
+    "etag_usage": true,
+    "age_range": "2-298 seconds"
+  },
+  "page_structure": {
+    "navigation": [
+      "Alpha Arena (logo)",
+      "LIVE",
+      "LEADERBOARD",
+      "BLOG",
+      "MODELS",
+      "JOIN THE PLATFORM WAITLIST",
+      "ABOUT NOF1"
+    ],
+    "main_sections": [
+      "Crypto price ticker (6 symbols)",
+      "Best/Worst performer summary",
+      "Account value chart",
+      "Model ranking cards",
+      "Trade details tabs"
+    ],
+    "tabs": [
+      "COMPLETED TRADES",
+      "MODELCHAT",
+      "POSITIONS",
+      "README.TXT"
+    ],
+    "interactive_elements": {
+      "buttons": ["ALL", "72H", "$", "%", "COMPLETED TRADES", "MODELCHAT", "POSITIONS", "README.TXT", "MODELS"],
+      "links": ["LIVE", "LEADERBOARD", "BLOG", "JOIN THE PLATFORM WAITLIST", "ABOUT NOF1"],
+      "images": 50
+    }
+  },
+  "competition_details": {
+    "name": "Alpha Arena - Season 1",
+    "starting_capital": 10000,
+    "currency": "USD",
+    "market": "Crypto perpetuals on Hyperliquid",
+    "objective": "Maximize risk-adjusted returns",
+    "transparency": "All model outputs and trades are public",
+    "duration": "Until November 3rd, 2025 at 5 p.m. EST",
+    "contestants": 7,
+    "leverage_range": "1-20x",
+    "current_leader": {
+      "model": "DeepSeek Chat V3.1",
+      "value": 21599.88,
+      "return_pct": 116.0
+    },
+    "current_worst": {
+      "model": "GPT 5",
+      "value": 3772.02,
+      "return_pct": -62.28
+    }
+  },
+  "security_findings": [
+    {
+      "id": "VULN-001",
+      "title": "Front-Running Risk via Public Exit Plans",
+      "severity": "high",
+      "category": "information_disclosure",
+      "description": "All exit plans including stop losses and profit targets are publicly visible, allowing potential front-running by external traders.",
+      "evidence": "Exit plans visible in /api/account-totals response with specific price levels",
+      "impact": "External traders can anticipate model trades and position ahead of large orders",
+      "remediation": "Consider hiding exit plans until after execution or using hidden orders on exchange",
+      "cvss_score": 6.5,
+      "references": ["OWASP-A01:2021"]
+    },
+    {
+      "id": "VULN-002",
+      "title": "React Hydration Errors in Production",
+      "severity": "medium",
+      "category": "application_logic",
+      "description": "Multiple React hydration errors (#418, #423) indicate SSR/client mismatch",
+      "evidence": "14 instances of error #418 and 1 instance of error #423 in console",
+      "impact": "Potential UI inconsistencies, incorrect data display, possible XSS vector",
+      "remediation": "Debug hydration errors in dev mode, synchronize timestamps, validate number formats",
+      "cvss_score": 5.3,
+      "references": ["CWE-754"]
+    },
+    {
+      "id": "INFO-001",
+      "title": "Missing Security Headers",
+      "severity": "low",
+      "category": "security_misconfiguration",
+      "description": "CSP, X-Frame-Options, X-Content-Type-Options headers not present",
+      "evidence": "Header analysis shows only HSTS present",
+      "impact": "Reduced defense-in-depth against XSS, clickjacking, MIME confusion",
+      "remediation": "Add Content-Security-Policy, X-Frame-Options: DENY, X-Content-Type-Options: nosniff",
+      "cvss_score": 3.1,
+      "references": ["OWASP-A05:2021"]
+    },
+    {
+      "id": "INFO-002",
+      "title": "No Visible Rate Limiting",
+      "severity": "low",
+      "category": "resource_management",
+      "description": "No rate limiting headers detected, potential for API abuse",
+      "evidence": "X-RateLimit-* headers absent in all responses",
+      "impact": "Potential for aggressive polling or scraping",
+      "remediation": "Implement and expose rate limiting with standard headers",
+      "cvss_score": 2.7,
+      "references": ["OWASP-A04:2021"]
+    }
+  ],
+  "recommendations": {
+    "high_priority": [
+      "Evaluate front-running risk and consider mitigation strategies",
+      "Fix React hydration errors to ensure UI consistency",
+      "Implement comprehensive security headers (CSP, X-Frame-Options, etc.)"
+    ],
+    "medium_priority": [
+      "Add visible rate limiting with standard headers",
+      "Consider WebSockets for real-time updates instead of polling",
+      "Audit non-public endpoints if they exist"
+    ],
+    "low_priority": [
+      "Add additional metrics: win rate, max drawdown, Sortino ratio",
+      "Implement webhook notifications for trade completion",
+      "Mobile responsiveness review"
+    ]
+  },
+  "conclusion": {
+    "overall_rating": "B+",
+    "strengths": [
+      "Complete transparency - all data publicly verifiable",
+      "Excellent performance with edge caching",
+      "Modern architecture (Next.js + Vercel)",
+      "Proper HTTPS/HSTS configuration",
+      "Well-designed API with logical endpoints"
+    ],
+    "weaknesses": [
+      "React production errors affecting UX",
+      "Front-running vulnerability due to public exit plans",
+      "No visible rate limiting",
+      "Missing additional security headers"
+    ],
+    "verdict": "Well-built platform with innovative concept. Architecture is solid and transparency is commendable. Identified vulnerabilities are mostly low-medium severity and easily mitigated."
+  }
+}
